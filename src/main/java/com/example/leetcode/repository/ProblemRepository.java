@@ -15,7 +15,7 @@ public interface ProblemRepository extends JpaRepository<Problem, Long> {
     @Query("SELECT new com.example.leetcode.dto.ProblemSummaryDTO(p.id, p.title, p.slug, p.difficulty) FROM Problem p")
     List<ProblemSummaryDTO> findAllProblemSummaries();
 
-    @Query("SELECT new com.example.leetcode.dto.ProblemDetailDTO(p.id, p.title, p.slug, p.difficulty, p.description, p.starterCode, p.languages, p.testCases) FROM Problem p WHERE p.slug = :slug")
+    @Query("SELECT new com.example.leetcode.dto.ProblemDetailDTO(p.id, p.title, p.slug, p.difficulty, p.description, p.starterCode, p.languages) FROM Problem p WHERE p.slug = :slug")
     Optional<ProblemDetailDTO> findProblemDetailBySlug(String slug);
 
 }
